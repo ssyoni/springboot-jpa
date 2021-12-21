@@ -1,5 +1,6 @@
 package com.helloworld.dev.web;
 
+import com.helloworld.dev.config.oauth.dto.SessionUser;
 import com.helloworld.dev.service.posts.PostsService;
 import com.helloworld.dev.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -10,15 +11,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
 
     private final PostsService postsService;
+    private final HttpSession httpSession;
 
     @GetMapping("/")
     public String index(Model model){
         model.addAttribute("posts",postsService.findAllDesc());
+
+        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+
+        if (user != null){
+            model.addAttribute("userName",user.getName());
+        }
         return "index";
     }
 
