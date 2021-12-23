@@ -1,5 +1,6 @@
 package com.helloworld.dev.web;
 
+import com.helloworld.dev.config.oauth.LoginUser;
 import com.helloworld.dev.config.oauth.dto.SessionUser;
 import com.helloworld.dev.service.posts.PostsService;
 import com.helloworld.dev.web.dto.PostsResponseDto;
@@ -21,10 +22,8 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model, @LoginUser SessionUser user){
         model.addAttribute("posts",postsService.findAllDesc());
-
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
 
         if (user != null){
             model.addAttribute("userName",user.getName());
