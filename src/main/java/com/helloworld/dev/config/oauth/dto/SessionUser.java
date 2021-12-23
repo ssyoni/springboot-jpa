@@ -3,9 +3,11 @@ package com.helloworld.dev.config.oauth.dto;
 import com.helloworld.dev.domain.user.User;
 import lombok.Getter;
 
+import java.io.Serializable;
+
 
 @Getter
-public class SessionUser {
+public class SessionUser implements Serializable {
     //User 클래스를 그대로 세션에 저장하지 않는 이유
     //: 직렬화 때문에
     //User 에 직렬화 코드를 안넣는 이유는?
