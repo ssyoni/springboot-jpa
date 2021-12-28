@@ -7,6 +7,9 @@ import com.helloworld.dev.web.dto.PostsResponseDto;
 import com.helloworld.dev.web.dto.PostsSaveRequestDto;
 import com.helloworld.dev.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,10 +49,12 @@ public class PostsService {
     }
 
     @Transactional(readOnly = true)
-    public List<PostsListResponseDto> findAllDesc(){
-        return postsRepository.findAllDesc().stream()
+    public Page<Posts> findAllDesc(Pageable pageable){
+        return postsRepository.findAllDesc(pageable);
+        /*return postsRepository.findAllDesc(pageable)
+                .stream()
                 .map(PostsListResponseDto::new)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList());*/
     }
 
     @Transactional
