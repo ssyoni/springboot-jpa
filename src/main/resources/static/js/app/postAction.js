@@ -1,4 +1,4 @@
-var index = {
+var postAction = {
     init : function(){
         var _this = this;
         $('#btn-save').on('click', function () {
@@ -67,7 +67,8 @@ var index = {
            }).fail(function (error) {
                alert(JSON.stringify(error));
            });
-    }
+    },
+
 };
 
-index.init();
+postAction.init();
