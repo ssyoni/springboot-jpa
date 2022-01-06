@@ -2,7 +2,6 @@ package com.helloworld.dev.config.oauth.dto;
 
 import com.helloworld.dev.domain.user.Role;
 import com.helloworld.dev.domain.user.User;
-import javafx.beans.binding.ObjectExpression;
 import lombok.Builder;
 import lombok.Getter;
 
