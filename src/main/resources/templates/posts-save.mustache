@@ -23,7 +23,7 @@
 </div>-->
 
 <div class="container">
-    <h1>설문조사 등록</h1>
+    <h1>설문조사 폼 등록</h1>
     <form>
         <fieldset>
             <legend>Legend</legend>
@@ -41,7 +41,7 @@
         <br/>
         <!--설문조사 항목-->
         <legend>설문조사 항목</legend>
-        <fieldset style="border:1px solid;border-radius:10px">
+        <fieldset style="border:1px solid;border-radius:10px" id="ansForm">
             <div class="form-group" style="margin:10px">
                 <label for="title" class="col-sm-2 col-form-label">Question</label>
                 <input type="text" class="form-control" id="title" placeholder="질문을 입력해주세요.">
@@ -50,30 +50,32 @@
                 <label for="answerForm" class="col-sm-2 col-form-label">Answer</label>
                 <div class="form-group" id="answerForm"style="width:150px;">
                     <select class="form-select" id="selectAswForm" >
-                        <option>TEXT</option>
-                        <option>RADIO</option>
-                        <option>CHECKBOX</option>
+                        <option value="text">TEXT</option>
+                        <option value="radioField">RADIO</option>
+                        <option value="chkField">CHECKBOX</option>
                     </select>
                 </div>
                 <!--text-->
                 <!--radio-->
-                <fieldset class="form-group" id="radioField">
+                <fieldset class="form-group" id="radioField" style="display:none;">
                     <legend class="mt-4">Radio Form</legend>
                     <button type="button" class="btn btn-outline-danger" id="addRadioBtn">add</button>
                 </fieldset>
                 <!--checkbox-->
-                <fieldset class="form-group" id="chkField">
+                <fieldset class="form-group" id="chkField" style="display:none;">
                     <legend class="mt-4">Checkboxes Form</legend>
                     <button type="button" class="btn btn-outline-danger" id="addChkBtn" >add</button>
                 </fieldset>
             </div>
         </fieldset>
-        <button type="button" class="btn btn-danger disabled" id="addBtn">+ ADD</button>
-
-
 
         <br/>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <button type="button" class="btn btn-danger disabled" id="addAnsFormBtn">+ ADD</button>
+
+        <br/>
+
+        <button type="submit" class="btn btn-primary" id="">Submit</button>
     </form>
 </div>
 
